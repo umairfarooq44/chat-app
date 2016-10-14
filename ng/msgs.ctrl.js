@@ -69,7 +69,7 @@ angular.module('chat-app')
     $scope.$on('ws:new_msg' ,function(_, message){
         $scope.$apply(function(){
 
-            if(message.recieverId == $scope.currentUser._id && message.recieverId == $scope.reciever._id)
+            if(message.recieverId == $scope.currentUser._id && message.senderId == $scope.reciever._id)
             $scope.msgs.unshift(message)
             console.log('in new_msg',message.recieverId , $scope.currentUser._id)
 
