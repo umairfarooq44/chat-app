@@ -1,0 +1,39 @@
+<div class='container'>
+    <h1>Chat app</h1>
+    <p ng-if ='reciever'> Chat with {{reciever.username}}</p>
+    <div class="row">
+        <div  class="col-md-8">
+            <div style="border: 1px dashed; height: 500px">
+                <ul class='list-group'>
+                    <li ng-repeat='msg in msgs' class='list-group-item'>
+                        <strong>@{{ msg.senderName }}</strong>
+                        <span>{{ msg.messageBody }}</span>
+                    </li>
+                </ul>
+            </div>
+            <br/>
+
+            <div class="row">
+                <form role='form'>
+                    <div class='form-group'>
+                        <div class='input-group'>
+                            <input ng-model = 'msgBody'  class='form-control' />
+                              <span class='input-group-btn'>
+                                <button ng-click='addMsg()' class='btn btn-default'>Add Post</button>
+                              </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-md-2" style="border: 1px dashed; height: 500px">
+            <ul class='list-group'>
+                <li  ng-repeat='user in loginUsers' class='list-group-item'>
+                    <strong ng-click='getUserMessages(user)'>{{ user.username }}</strong>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
